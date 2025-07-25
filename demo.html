@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gruppe Generator Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+    <h1 style="margin-bottom:0;">Gruppe Generator – Demo</h1>
+    <a href="index.html" style="background:linear-gradient(90deg,#5b9bd5,#4ecb6e);color:#fff;padding:10px 22px;border-radius:7px;font-weight:600;text-decoration:none;box-shadow:0 1px 4px #4ecb6e22;font-size:1.08em;transition:background .18s,box-shadow .18s;">Tilbage til generator</a>
+  </div>
+  <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
+    <input type="number" id="antal-elever" min="1" placeholder="Antal elever" style="max-width: 120px;" />
+    <button id="tilføj-elever">Tilføj elever</button>
+    <button id="vis-ønsker">Tilføj ønsker</button>
+    <button id="vis-fravalg">Tilføj fravalg</button>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Navn
+          <span class="tooltip-container" tabindex="0" aria-label="Forklaring på navneindtastning" style="margin-left:4px;outline:none;">
+            <span style="font-size:1em;vertical-align:baseline;">🛈</span>
+            <span class="tooltip-text">
+              Du kan skrive navne manuelt eller kopiere dem ind fra en tabel (fx Excel/Sheets).
+            </span>
+          </span>
+        </th>
+        <th class="ønske-col">Ønske 1</th>
+        <th class="ønske-col">Ønske 2</th>
+        <th class="ønske-col">Ønske 3</th>
+        <th class="fravalg-col">Ikke sammen med 1</th>
+        <th class="fravalg-col">Ikke sammen med 2</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="elev-tabel">
+      <tr>
+        <td class="student-index">1</td>
+        <td><input type="text" value="Anna" /></td>
+        <td class="ønske-col"><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="Clara" /></td>
+        <td class="ønske-col"><input type="text" value="David" /></td>
+        <td class="fravalg-col"><input type="text" value="Emil" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">2</td>
+        <td><input type="text" value="Bjørn" /></td>
+        <td class="ønske-col"><input type="text" value="Hannah" /></td>
+        <td class="ønske-col"><input type="text" value="Clara" /></td>
+        <td class="ønske-col"><input type="text" value="Emil" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td class="fravalg-col"><input type="text" value="Gustav" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">3</td>
+        <td><input type="text" value="Clara" /></td>
+        <td class="ønske-col"><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="Bjørn" /></td>
+        <td class="ønske-col"><input type="text" value="Anna" /></td>
+        <td class="fravalg-col"><input type="text" value="David" /></td>
+        <td class="fravalg-col"><input type="text" value="Emil" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">4</td>
+        <td><input type="text" value="David" /></td>
+        <td class="ønske-col"><input type="text" value="Anna" /></td>
+        <td class="ønske-col"><input type="text" value="Bjørn" /></td>
+        <td class="ønske-col"><input type="text" value="Clara" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td class="fravalg-col"><input type="text" value="Gustav" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">5</td>
+        <td><input type="text" value="Emil" /></td>
+        <td class="ønske-col"><input type="text" value="David" /></td>
+        <td class="ønske-col"><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="Fie" /></td>
+        <td class="fravalg-col"><input type="text" value="Anna" /></td>
+        <td class="fravalg-col"><input type="text" value="David" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">6</td>
+        <td><input type="text" value="Fie" /></td>
+        <td class="ønske-col"><input type="text" value="Emil" /></td>
+        <td class="ønske-col"><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="David" /></td>
+        <td class="fravalg-col"><input type="text" value="Anna" /></td>
+        <td class="fravalg-col"><input type="text" value="Clara" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">7</td>
+        <td><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="Fie" /></td>
+        <td class="ønske-col"><input type="text" value="Hannah" /></td>
+        <td class="ønske-col"><input type="text" value="David" /></td>
+        <td class="fravalg-col"><input type="text" value="Clara" /></td>
+        <td class="fravalg-col"><input type="text" value="Emil" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">8</td>
+        <td><input type="text" value="Hannah" /></td>
+        <td class="ønske-col"><input type="text" value="Gustav" /></td>
+        <td class="ønske-col"><input type="text" value="Ida" /></td>
+        <td class="ønske-col"><input type="text" value="Jonas" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td class="fravalg-col"><input type="text" value="Clara" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">9</td>
+        <td><input type="text" value="Ida" /></td>
+        <td class="ønske-col"><input type="text" value="Hannah" /></td>
+        <td class="ønske-col"><input type="text" value="Jonas" /></td>
+        <td class="ønske-col"><input type="text" value="David" /></td>
+        <td class="fravalg-col"><input type="text" value="Gustav" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">10</td>
+        <td><input type="text" value="Jonas" /></td>
+        <td class="ønske-col"><input type="text" value="Ida" /></td>
+        <td class="ønske-col"><input type="text" value="Kasper" /></td>
+        <td class="ønske-col"><input type="text" value="Lise" /></td>
+        <td class="fravalg-col"><input type="text" value="Hannah" /></td>
+        <td class="fravalg-col"><input type="text" value="Fie" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">11</td>
+        <td><input type="text" value="Kasper" /></td>
+        <td class="ønske-col"><input type="text" value="Jonas" /></td>
+        <td class="ønske-col"><input type="text" value="Lise" /></td>
+        <td class="ønske-col"><input type="text" value="Anna" /></td>
+        <td class="fravalg-col"><input type="text" value="Ida" /></td>
+        <td class="fravalg-col"><input type="text" value="Gustav" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+      <tr>
+        <td class="student-index">12</td>
+        <td><input type="text" value="Lise" /></td>
+        <td class="ønske-col"><input type="text" value="Kasper" /></td>
+        <td class="ønske-col"><input type="text" value="Anna" /></td>
+        <td class="ønske-col"><input type="text" value="Bjørn" /></td>
+        <td class="fravalg-col"><input type="text" value="Jonas" /></td>
+        <td class="fravalg-col"><input type="text" value="Clara" /></td>
+        <td><button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="group-settings">
+    <label>
+      Antal grupper med 2:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 3:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 4:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 5:
+      <input type="number" min="0" />
+    </label>
+  </div>
+  <div class="button">
+    <button id="lav-grupper-btn">Lav grupper</button>
+  </div>
+  <div id="gruppe-resultat" style="margin-top:30px;"></div>
+  <script src="script.js"></script>
+  <script src="gruppegen.js"></script>
+</body>
+</html>

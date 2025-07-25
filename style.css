@@ -1,0 +1,161 @@
+/* Tooltip til forklaring ved ?-ikon */
+.tooltip-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1em;
+  color: #185c18;
+  vertical-align: middle;
+}
+.tooltip-container:focus .tooltip-text,
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip-text {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 7px;
+  position: absolute;
+  z-index: 10;
+  top: -8px;
+  left: 120%;
+  white-space: nowrap;
+  font-size: 0.97em;
+  opacity: 0;
+  box-shadow: 0 2px 12px #0002;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  color: #222;
+}
+
+h1 {
+  text-align: center;
+  color: #2d3a4b;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  border: none;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f0f4f8;
+  color: #2d3a4b;
+  font-weight: 600;
+}
+
+/* Fast og lille bredde til navne-kolonnen */
+th:nth-child(2), td:nth-child(2) {
+  width: 120px !important;
+  min-width: 175px !important;
+  max-width: 180px !important;
+  white-space: nowrap;
+}
+
+tr:nth-child(even) td {
+  background-color: #f9fbfc;
+}
+
+input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  box-sizing: border-box;
+  border: 1px solid #cfd8dc;
+  border-radius: 4px;
+  background: #f7fafc;
+  transition: border 0.2s;
+  font-size: 1rem;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+  border-color: #5b9bd5;
+  outline: none;
+  background: #fff;
+}
+
+.group-settings {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.group-settings label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #2d3a4b;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #5b9bd5 0%, #3a7bd5 100%);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(44, 62, 80, 0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+button:hover, button:focus {
+  background: linear-gradient(90deg, #3a7bd5 0%, #5b9bd5 100%);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+
+button:active {
+  background: #2d3a4b;
+  color: #fff;
+  transform: scale(0.98);
+}
+
+/* Nummer-kolonne til elevliste */
+.student-index {
+  font-weight: bold;
+  color: #5b9bd5;
+  background: #f0f4f8;
+  width: 40px;
+  border-radius: 4px;
+}
+
+/* Skjul ønsker/fravalg kolonner som standard */
+.ønske-col,
+.fravalg-col {
+  display: none;
+}
+
+/* Vis ønsker/fravalg kolonner når .show-ønsker/.show-fravalg er på <body> */
+body.show-ønsker .ønske-col {
+  display: table-cell;
+}
+body.show-fravalg .fravalg-col {
+  display: table-cell;
+}

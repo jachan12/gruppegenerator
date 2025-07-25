@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gruppeinddeling</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+    <div>
+      <h1 style="margin-bottom:0;">Algoritmisk gruppefordeler</h1>
+      <span style="display:block;font-family:'Segoe UI', Arial, sans-serif;font-size:1.08em;font-weight:400;color:#3a7bd5;letter-spacing:0.1px;opacity:0.85;margin-left:4px;margin-top:2px;">Generer grupper optimeret efter ønsker og fravalg</span>
+    </div>
+    <a href="demo.html" style="background:linear-gradient(90deg,#4ecb6e,#5b9bd5);color:#fff;padding:10px 22px;border-radius:7px;font-weight:600;text-decoration:none;box-shadow:0 1px 4px #4ecb6e22;font-size:1.08em;transition:background .18s,box-shadow .18s;">Demo med eksempler</a>
+  </div>
+
+  <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 20px;">
+    <input type="number" id="antal-elever" min="1" placeholder="Antal elever" style="max-width: 120px;" />
+    <button id="tilføj-elever">Tilføj elever</button>
+    <button id="vis-ønsker">Tilføj ønsker</button>
+    <button id="vis-fravalg">Tilføj fravalg</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Navn
+          <span class="tooltip-container" tabindex="0" aria-label="Forklaring på navneindtastning" style="margin-left:4px;outline:none;">
+            <span style="font-size:1em;vertical-align:baseline;">🛈</span>
+            <span class="tooltip-text">
+              Du kan skrive navne manuelt eller kopiere dem ind fra en tabel (fx Excel/Sheets).
+            </span>
+          </span>
+        </th>
+        <th class="ønske-col">Ønske 1</th>
+        <th class="ønske-col">Ønske 2</th>
+        <th class="ønske-col">Ønske 3</th>
+        <th class="fravalg-col">Ikke sammen med 1</th>
+        <th class="fravalg-col">Ikke sammen med 2</th>
+        <th></th> <!-- Slet-kolonne -->
+      </tr>
+    </thead>
+    <tbody id="elev-tabel">
+      <tr>
+        <td class="student-index">1</td>
+        <td><input type="text" placeholder="Navn" /></td>
+        <td class="ønske-col"><input type="text" placeholder="Navn" /></td>
+        <td class="ønske-col"><input type="text" placeholder="Navn" /></td>
+        <td class="ønske-col"><input type="text" placeholder="Navn" /></td>
+        <td class="fravalg-col"><input type="text" placeholder="Navn" /></td>
+        <td class="fravalg-col"><input type="text" placeholder="Navn" /></td>
+        <td>
+          <button class="remove-row" title="Slet elev" style="background:none;border:none;color:#d9534f;font-size:1.2em;cursor:pointer;">&#10005;</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="group-settings">
+    <label>
+      Antal grupper med 2:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 3:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 4:
+      <input type="number" min="0" />
+    </label>
+    <label>
+      Antal grupper med 5:
+      <input type="number" min="0" />
+    </label>
+  </div>
+
+  <div class="button">
+    <button id="lav-grupper-btn">Lav grupper</button>
+  </div>
+
+
+  <div id="gruppe-resultat" style="margin-top:30px;"></div>
+
+  <footer style="margin-top:48px;text-align:center;font-size:1.01em;color:#5b9bd5;opacity:0.82;letter-spacing:0.1px;font-family:'Segoe UI', Arial, sans-serif;">
+    Lavet af Jacob Højgaard Hansen
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="gruppegen.js"></script>
+</body>
+</html>
