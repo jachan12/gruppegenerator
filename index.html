@@ -80,10 +80,34 @@
 
   <div class="button">
     <button id="lav-grupper-btn">Lav grupper</button>
+    <span id="fejl-besked" style="color: red; margin-left: 10px;"></span>
   </div>
 
 
   <div id="gruppe-resultat" style="margin-top:30px;"></div>
+
+<div id="farve-forklaring" style="max-width:500px; margin:20px auto; font-family: Arial, sans-serif; line-height:1.5;">
+  <h3>Forklaring af farverne</h3>
+  <ul style="list-style:none; padding:0; margin:0;">
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#4ecb6e; border-radius:4px; margin-right:10px;"></span>
+      <strong>Mørkegrøn:</strong>&nbsp;Gensidigt ønske med mindst en anden.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#b6f5b6; border-radius:4px; margin-right:10px;"></span>
+      <strong>Grøn:</strong>&nbsp;Personen har mindst et ønske opfyldt.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#ffffff; border:1px solid #ccc; border-radius:4px; margin-right:10px;"></span>
+      <strong>Hvid:</strong>&nbsp;Ingen ønsker opfyldt.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#ffb6b6; border-radius:4px; margin-right:10px;"></span>
+      <strong>Rød:</strong>&nbsp;Eleven er i gruppe med en fravalgt.
+    </li>
+    
+  </ul>
+</div>
 
   <footer style="margin-top:48px;text-align:center;font-size:1.01em;color:#5b9bd5;opacity:0.82;letter-spacing:0.1px;font-family:'Segoe UI', Arial, sans-serif;">
     Lavet af Jacob Højgaard Hansen

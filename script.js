@@ -18,38 +18,40 @@ function tilføjSletKnap(row) {
   row.appendChild(cell);
 }
 
-// Vis/skjul ønsker/fravalg kolonner med dynamisk tekst og farve
 const ønskerBtn = document.getElementById("vis-ønsker");
 const fravalgBtn = document.getElementById("vis-fravalg");
-// Start med grøn baggrund og mørkegrøn tekst på begge tilføj-knapper
-ønskerBtn.style.background = "#4ecb6e";
-ønskerBtn.style.color = "#185c18";
-fravalgBtn.style.background = "#4ecb6e";
-fravalgBtn.style.color = "#185c18";
+
+// Tilføj startklasser så kolonnerne er synlige fra start
+document.body.classList.add("show-ønsker");
+document.body.classList.add("show-fravalg");
+
+// Start med rød baggrund og hvid tekst = "allerede tilføjet"
+ønskerBtn.textContent = "Fjern ønsker";
+ønskerBtn.style.background = "#ff5a5a";
+ønskerBtn.style.color = "#fff";
+
+fravalgBtn.textContent = "Fjern fravalg";
+fravalgBtn.style.background = "#ff5a5a";
+fravalgBtn.style.color = "#fff";
+
+// Toggle-knap for ønsker
 ønskerBtn.addEventListener("click", () => {
   document.body.classList.toggle("show-ønsker");
   const aktiv = document.body.classList.contains("show-ønsker");
   ønskerBtn.textContent = aktiv ? "Fjern ønsker" : "Tilføj ønsker";
-  if (aktiv) {
-    ønskerBtn.style.background = "#ff5a5a";
-    ønskerBtn.style.color = "#fff";
-  } else {
-    ønskerBtn.style.background = "#4ecb6e";
-    ønskerBtn.style.color = "#185c18";
-  }
+  ønskerBtn.style.background = aktiv ? "#ff5a5a" : "#4ecb6e";
+  ønskerBtn.style.color = aktiv ? "#fff" : "#185c18";
 });
+
+// Toggle-knap for fravalg
 fravalgBtn.addEventListener("click", () => {
   document.body.classList.toggle("show-fravalg");
   const aktiv = document.body.classList.contains("show-fravalg");
   fravalgBtn.textContent = aktiv ? "Fjern fravalg" : "Tilføj fravalg";
-  if (aktiv) {
-    fravalgBtn.style.background = "#ff5a5a";
-    fravalgBtn.style.color = "#fff";
-  } else {
-    fravalgBtn.style.background = "#4ecb6e";
-    fravalgBtn.style.color = "#185c18";
-  }
+  fravalgBtn.style.background = aktiv ? "#ff5a5a" : "#4ecb6e";
+  fravalgBtn.style.color = aktiv ? "#fff" : "#185c18";
 });
+
 
 // Giv 'Tilføj elever' blå farve, så den matcher inputfeltet og skiller sig ud
 const tilføjEleverBtn = document.getElementById("tilføj-elever");

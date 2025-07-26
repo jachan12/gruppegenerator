@@ -163,15 +163,15 @@
   <div class="group-settings">
     <label>
       Antal grupper med 2:
-      <input type="number" min="0" />
+      <input type="number" min="0" value="1" />
     </label>
     <label>
       Antal grupper med 3:
-      <input type="number" min="0" />
+      <input type="number" min="0" value="2"/>
     </label>
     <label>
       Antal grupper med 4:
-      <input type="number" min="0" />
+      <input type="number" min="0" value="1"/>
     </label>
     <label>
       Antal grupper med 5:
@@ -180,8 +180,35 @@
   </div>
   <div class="button">
     <button id="lav-grupper-btn">Lav grupper</button>
+    <span id="fejl-besked" style="color: red; margin-left: 10px;"></span>
   </div>
+  
   <div id="gruppe-resultat" style="margin-top:30px;"></div>
+
+  <div id="farve-forklaring" style="max-width:500px; margin:20px auto; font-family: Arial, sans-serif; line-height:1.5;">
+  <h3>Forklaring af farverne</h3>
+  <ul style="list-style:none; padding:0; margin:0;">
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#4ecb6e; border-radius:4px; margin-right:10px;"></span>
+      <strong>Mørkegrøn:</strong>&nbsp;Gensidigt ønske med mindst en anden.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#b6f5b6; border-radius:4px; margin-right:10px;"></span>
+      <strong>Grøn:</strong>&nbsp;Personen har mindst et ønske opfyldt.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#ffffff; border:1px solid #ccc; border-radius:4px; margin-right:10px;"></span>
+      <strong>Hvid:</strong>&nbsp;Ingen ønsker opfyldt.
+    </li>
+    <li style="display:flex; align-items:center; margin-bottom:8px;">
+      <span style="display:inline-block; width:20px; height:20px; background:#ffb6b6; border-radius:4px; margin-right:10px;"></span>
+      <strong>Rød:</strong>&nbsp;Eleven er i gruppe med en fravalgt.
+    </li>
+    
+  </ul>
+</div>
+
+
   <script src="script.js"></script>
   <script src="gruppegen.js"></script>
 </body>

@@ -248,14 +248,17 @@ document.getElementById("lav-grupper-btn").addEventListener("click", () => {
     const antal5 = parseInt(groupInputs[3].value, 10) || 0;
     const ønsketAntal = antal2 * 2 + antal3 * 3 + antal4 * 4+ antal5 * 5;
     if (elever.length === 0) {
-      alert("Indtast mindst en elev med navn.");
+      const fejlBesked = document.getElementById("fejl-besked");
+      fejlBesked.textContent = "Indtast mindst en elev med navn.";
       container.innerHTML = oldHtml;
       return;
+
     }
     if (ønsketAntal < elever.length) {
-      alert("Der er flere elever end der er plads til i de ønskede grupper. Tilføj flere grupper eller større grupper.");
+      const fejlBesked = document.getElementById("fejl-besked");
+      fejlBesked.textContent = "Der er flere elever end der er plads til i de ønskede grupper.";
       container.innerHTML = oldHtml;
-      return;
+
     }
 
     // Loading bar animation (kør hele vejen til 100%)
